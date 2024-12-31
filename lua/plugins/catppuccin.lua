@@ -37,8 +37,8 @@ return	{
 				operators = {},
 				-- miscs = {}, -- Uncomment to turn off hard-coded styles
 			},
-			color_overrides = {default},
-			custom_highlights = {CursorLineNr},
+			-- color_overrides = {default},
+			-- custom_highlights = {CursorLineNr},
 			default_integrations = true,
 			integrations = {
 				cmp = true,
