@@ -2,13 +2,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Lista de teclas de movimiento en modo normal
+-- Movimiento en modo insercion con ctrl
 local keys = { 'h', 'j', 'k', 'l', 'w', 'b', 'e', '0', '$', 'gg', 'G'}
-
--- Iterar sobre las teclas y mapear Ctrl + tecla en modo insertar
 for _, key in ipairs(keys) do
     vim.api.nvim_set_keymap('i', '<C-' .. key .. '>', '<C-o>' .. key, { noremap = true, silent = true })
 end
+vim.api.nvim_set_keymap('i', '<C-d>', '<Del>', { noremap = true, silent = true })
 
 -- Mapear Ctrl + z para deshacer en modo insertar
 vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
@@ -17,9 +16,40 @@ vim.api.nvim_set_keymap('n', '<C-z>', 'u', { noremap = true, silent = true })
 -- Mapear Ctrl + z para deshacer en modo visual
 vim.api.nvim_set_keymap('v', '<C-z>', 'u', { noremap = true, silent = true })
 
+-- Guardar archivo
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>w", ':w<CR>', { desc = "Guardar" })
+vim.keymap.set("n", "<leader>wa", ':wa<CR>', { desc = "Guardar todo" })
+
+-- Cerrar archivo
+vim.api.nvim_set_keymap('n', '<C-d>', ':q<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", ':q<CR>', { desc = "Cerrar" })
+vim.keymap.set("n", "<leader>qa", ':qa<CR>', { desc = "Cerrar todo" })
+
+-- Guardar y cerrar todo
+vim.keymap.set("n", "<leader>wq", ':wqa<CR>', { desc = "Guardar y cerrar todo" })
+
 -- Navegar entre ventanas
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+
+-- Mover ventanas
+vim.api.nvim_set_keymap('n', '<S-H>', '<C-w>H', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-J>', '<C-w>J', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-K>', '<C-w>K', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-L>', '<C-w>L', { noremap = true, silent = true })
+
+-- Gestion de pestañas
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Abrir nueva pestaña" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Cerrar pestaña actual" })
+vim.keymap.set("n", "<leader>tl", ":tabnext<CR>", { desc = "Ir a la siguiente pestaña" })
+vim.keymap.set("n", "<leader>th", ":tabprevious<CR>", { desc = "Ir a la pestaña anterior" })
+vim.keymap.set("n", "<leader>t1", "1gt", { desc = "Ir a la pestaña 1" })
+vim.keymap.set("n", "<leader>t2", "2gt", { desc = "Ir a la pestaña 2" })
+vim.keymap.set("n", "<leader>t3", "3gt", { desc = "Ir a la pestaña 3" })
+vim.keymap.set("n", "<leader>t4", "4gt", { desc = "Ir a la pestaña 4" })
+vim.keymap.set("n", "<leader>t5", "5gt", { desc = "Ir a la pestaña 5" })
 
