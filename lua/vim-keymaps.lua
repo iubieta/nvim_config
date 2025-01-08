@@ -4,7 +4,7 @@ vim.g.maplocalleader = "\\"
 
 -- Movimiento
 vim.api.nvim_set_keymap('n', 'J', '<C-d>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-K>', '<C-u>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', '<C-u>', { noremap = true, silent = true })
 
 -- Movimiento en modo insercion con ctrl
 local keys = { 'w', 'b', 'e', '0', '$', 'gg', 'G'}
@@ -31,6 +31,8 @@ vim.keymap.set("n", "<leader>qa", ':qa<CR>', { desc = "Cerrar todo" })
 
 -- Guardar y cerrar todo
 vim.keymap.set("n", "<leader>wq", ':wqa<CR>', { desc = "Guardar y cerrar todo" })
+-- Cerrar todo
+vim.keymap.set("n", "<leader>qa", ':qa!<CR>', { desc = "Cerrar todo" })
 
 -- Navegar entre ventanas
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
