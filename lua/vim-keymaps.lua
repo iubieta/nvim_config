@@ -53,3 +53,17 @@ vim.keymap.set("n", "<leader>t3", "3gt", { desc = "Ir a la pestaña 3" })
 vim.keymap.set("n", "<leader>t4", "4gt", { desc = "Ir a la pestaña 4" })
 vim.keymap.set("n", "<leader>t5", "5gt", { desc = "Ir a la pestaña 5" })
 
+-- Script para comentar mains
+local function comment_main_block()
+    vim.cmd('normal gg')
+    if vim.fn.search('int main(.*)', 'n') == 0 then
+        print('No se encontró una función main en este archivo.')
+        return
+    end
+    vim.cmd('normal V')
+    vim.cmd('normal ]}')
+    vim.cmd('CommentToggle')
+end
+
+vim.api.nvim_create_user_command('CommentMain', comment_main_block, {})
+vim.keymap.set("n", "<leader>cm", ":CommentMain<CR>", { desc = "Comentar main" })
