@@ -2,18 +2,20 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Movimiento
+vim.api.nvim_set_keymap('n', 'J', '<C-d>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-K>', '<C-u>', { noremap = true, silent = true })
+
 -- Movimiento en modo insercion con ctrl
-local keys = { 'h', 'j', 'k', 'l', 'w', 'b', 'e', '0', '$', 'gg', 'G'}
+local keys = { 'w', 'b', 'e', '0', '$', 'gg', 'G'}
 for _, key in ipairs(keys) do
     vim.api.nvim_set_keymap('i', '<C-' .. key .. '>', '<C-o>' .. key, { noremap = true, silent = true })
 end
 vim.api.nvim_set_keymap('i', '<C-d>', '<Del>', { noremap = true, silent = true })
 
--- Mapear Ctrl + z para deshacer en modo insertar
+-- Deshacer
 vim.api.nvim_set_keymap('i', '<C-z>', '<C-o>u', { noremap = true, silent = true })
--- Mapear Ctrl + z para deshacer en modo normal
 vim.api.nvim_set_keymap('n', '<C-z>', 'u', { noremap = true, silent = true })
--- Mapear Ctrl + z para deshacer en modo visual
 vim.api.nvim_set_keymap('v', '<C-z>', 'u', { noremap = true, silent = true })
 
 -- Guardar archivo
@@ -36,11 +38,11 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
--- Mover ventanas
-vim.api.nvim_set_keymap('n', '<S-H>', '<C-w>H', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-J>', '<C-w>J', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-K>', '<C-w>K', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-L>', '<C-w>L', { noremap = true, silent = true })
+-- -- Mover ventanas
+-- vim.api.nvim_set_keymap('n', '<S-H>', '<C-w>H', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-J>', '<C-w>J', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-K>', '<C-w>K', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-L>', '<C-w>L', { noremap = true, silent = true })
 
 -- Gestion de pestañas
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Abrir nueva pestaña" })
@@ -53,17 +55,3 @@ vim.keymap.set("n", "<leader>t3", "3gt", { desc = "Ir a la pestaña 3" })
 vim.keymap.set("n", "<leader>t4", "4gt", { desc = "Ir a la pestaña 4" })
 vim.keymap.set("n", "<leader>t5", "5gt", { desc = "Ir a la pestaña 5" })
 
--- Script para comentar mains
-local function comment_main_block()
-    vim.cmd('normal gg')
-    if vim.fn.search('int main(.*)', 'n') == 0 then
-        print('No se encontró una función main en este archivo.')
-        return
-    end
-    vim.cmd('normal V')
-    vim.cmd('normal ]}')
-    vim.cmd('CommentToggle')
-end
-
-vim.api.nvim_create_user_command('CommentMain', comment_main_block, {})
-vim.keymap.set("n", "<leader>cm", ":CommentMain<CR>", { desc = "Comentar main" })
