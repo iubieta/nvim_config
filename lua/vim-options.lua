@@ -13,3 +13,8 @@ vim.opt.smartindent = true -- Añade indentado automático en estructuras de có
 -- Dejar lineas por encima y debajo del cursor
 vim.opt.scrolloff = 10
 
+-- No recortar lineas
+vim.opt.wrap = false
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 5
+
