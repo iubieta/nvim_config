@@ -39,10 +39,6 @@ vim.keymap.set("n", "<leader>wq", ':wqa<CR>', { desc = "Guardar y cerrar todo" }
 -- Cerrar todo
 vim.keymap.set("n", "<leader>qa", ':qa!<CR>', { desc = "Cerrar todo" })
 
--- Portapapeles de Windows
-vim.keymap.set('v', '<C-S-c>', '"+y', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-S-v>', '"+p', { noremap = true, silent = true })
-
 -- split
 vim.keymap.set("n", "<leader>s", ':split<CR>', { desc = "Cerrar todo" })
 vim.keymap.set("n", "<leader>vs", ':vertical split<CR>', { desc = "Cerrar todo" })

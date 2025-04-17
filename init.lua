@@ -23,6 +23,8 @@ require("vim-keymaps")
 
 require("vim-options")
 
+require("vim-clipboard")
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = { import = "plugins" },
