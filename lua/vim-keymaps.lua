@@ -8,8 +8,8 @@ vim.api.nvim_set_keymap('n', '<C-c>', '<Esc>', { noremap = true, silent = true }
 vim.api.nvim_set_keymap('v', '<C-c>', '<Esc>', { noremap = true, silent = true })
 
 -- Movimiento
-vim.api.nvim_set_keymap('n', 'J', ':15j<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'K', ':15k<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'J', '15j<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'K', '15k<CR>', { noremap = true, silent = true })
 
 -- Movimiento en modo insercion con ctrl
 local keys = { 'w', 'b', 'e', '0', '$', 'gg', 'G'}
@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>w", ':w<CR>', { desc = "Guardar" })
 vim.keymap.set("n", "<leader>wa", ':wa<CR>', { desc = "Guardar todo" })
 
 -- Cerrar archivo
-vim.api.nvim_set_keymap('n', '<C-w>', ':q<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-d>', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>q", ':q<CR>', { desc = "Cerrar" })
 vim.keymap.set("n", "<leader>qa", ':qa<CR>', { desc = "Cerrar todo" })
 
@@ -39,9 +39,16 @@ vim.keymap.set("n", "<leader>wq", ':wqa<CR>', { desc = "Guardar y cerrar todo" }
 -- Cerrar todo
 vim.keymap.set("n", "<leader>qa", ':qa!<CR>', { desc = "Cerrar todo" })
 
+-- Portapapeles de Windows
+vim.keymap.set('v', '<C-S-c>', '"+y', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-S-v>', '"+p', { noremap = true, silent = true })
 
--- Vertical split
+-- split
+vim.keymap.set("n", "<leader>s", ':split<CR>', { desc = "Cerrar todo" })
 vim.keymap.set("n", "<leader>vs", ':vertical split<CR>', { desc = "Cerrar todo" })
+
+-- Abrir terminal
+vim.keymap.set("n", "<leader>ot", ':terminal<CR>', { desc = "Abrir terminal"})
 
 -- Navegar entre ventanas
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
