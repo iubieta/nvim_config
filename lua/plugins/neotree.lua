@@ -7,14 +7,14 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		require("neo-tree").setup({
-			popup_border_style = "rounded",  -- Opcional, estilo del borde
-			window = {
-				position = "left",
-				width = 30,  -- Ancho de la ventana flotante
-				height = 40, -- Altura de la ventana flotante
-			},
-		})
-		vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>') -- Mapeo para abrirlo
+		-- require("neo-tree").setup({
+		-- 	popup_border_style = "rounded",  -- Opcional, estilo del borde
+		-- 	window = {
+		-- 		position = "left",
+		-- 		width = 30,  -- Ancho de la ventana flotante
+		-- 		height = 40, -- Altura de la ventana flotante
+		-- 	},
+		-- })
+		vim.keymap.set('n', '<leader>e', ':Neotree current .<CR>') -- Mapeo para abrirlo
 	end
 }

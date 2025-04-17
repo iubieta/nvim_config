@@ -39,6 +39,10 @@ vim.keymap.set("n", "<leader>wq", ':wqa<CR>', { desc = "Guardar y cerrar todo" }
 -- Cerrar todo
 vim.keymap.set("n", "<leader>qa", ':qa!<CR>', { desc = "Cerrar todo" })
 
+
+-- Vertical split
+vim.keymap.set("n", "<leader>vs", ':vertical split<CR>', { desc = "Cerrar todo" })
+
 -- Navegar entre ventanas
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
