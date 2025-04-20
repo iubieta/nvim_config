@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>w", ':w<CR>', { desc = "Guardar" })
 vim.keymap.set("n", "<leader>wa", ':wa<CR>', { desc = "Guardar todo" })
 
 -- Cerrar archivo
-vim.keymap.set('n', '<C-d>', ':q<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-x>', ':q<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>q", ':q<CR>', { desc = "Cerrar" })
 vim.keymap.set("n", "<leader>qa", ':qa<CR>', { desc = "Cerrar todo" })
 
