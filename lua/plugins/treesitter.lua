@@ -5,7 +5,15 @@ return
 	config = function()
 		require'nvim-treesitter.configs'.setup {
 			-- A list of parser names, or "all" (the listed parsers MUST always be installed)
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+			ensure_installed = {
+				"c",
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
+				"markdown",
+				"markdown_inline"
+			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
@@ -21,7 +29,7 @@ return
 			-- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
 
 			highlight = {
-				enable = false,
+				enable = true,
 
 				-- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
 				-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is

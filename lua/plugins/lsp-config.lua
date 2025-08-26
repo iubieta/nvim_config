@@ -16,6 +16,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = { prefix = "●", spacing = 2 },
+			})
 			local lspconfig = require("lspconfig")
 
 			lspconfig.lua_ls.setup({})
